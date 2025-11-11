@@ -4,6 +4,13 @@
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
+
+PORT/SEA THEME COLOR PALETTE:
+- Primary Navy: #1e3c72 → hsl(215, 59%, 28%)
+- Medium Blue: #2a5298 → hsl(215, 59%, 38%) 
+- Text Dark: #333333 → hsl(0, 0%, 20%)
+- Ocean Blue: #4682B4 → hsl(205, 70%, 45%)
+- Light Sky: #B0D4F1 → hsl(200, 60%, 85%)
 */
 
 @layer base {
@@ -17,66 +24,66 @@ All colors MUST be HSL.
     --neutral-700: 215 19% 35%;
     --neutral-900: 222 47% 11%;
 
-    /* Brand colors - Maritime theme with coral/orange accents */
-    --primary: 222.2 47.4% 11.2%;
+    /* Brand colors - Navy Blue Maritime theme */
+    --primary: 215 59% 28%; /* Navy Blue #1e3c72 */
     --primary-foreground: 210 40% 98%;
-    --primary-hover: 215 85% 20%;
+    --primary-hover: 215 59% 23%; /* Darker navy on hover */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --accent-hover: 25 95% 48%;
+    --accent: 215 59% 38%; /* Medium Blue #2a5298 for links/accents */
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 215 59% 45%; /* Lighter blue on hover */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 200 25% 95%; /* Light blue-gray for secondary elements */
+    --secondary-foreground: 215 59% 28%;
 
     /* Semantic colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 20%; /* Dark gray #333333 for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 20%; /* Matching text color */
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 215 59% 28%; /* Navy blue ring for focus states */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    /* Maritime theme */
-    --maritime-deep: 215 85% 25%;
-    --maritime-ocean: 200 95% 45%;
-    --maritime-sky: 200 95% 90%;
+    /* Maritime theme - Navy Blue variation */
+    --maritime-deep: 215 59% 20%; /* Deep navy for depths */
+    --maritime-ocean: 205 70% 45%; /* Ocean blue */
+    --maritime-sky: 200 60% 85%; /* Light sky blue */
 
     --sustainability-green: 145 80% 35%;
     --sustainability-light: 145 80% 95%;
 
-    /* Gradients with coral/orange accents - Full-width enhanced */
+    /* Gradients with navy blue theme - Full-width enhanced */
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(210 100% 12%),
-      hsl(210 100% 25%)
+      hsl(215 59% 28%),
+      hsl(215 59% 35%)
     );
     --gradient-accent: linear-gradient(
       135deg,
-      hsl(25 95% 53%),
-      hsl(35 95% 60%)
+      hsl(215 59% 38%),
+      hsl(205 70% 45%)
     );
     --gradient-hero: linear-gradient(
       135deg,
-      hsl(210 100% 12% / 0.95),
-      hsl(210 100% 20% / 0.85)
+      hsl(215 59% 28% / 0.95),
+      hsl(215 59% 35% / 0.85)
     );
     --gradient-hero-light: linear-gradient(
       to right,
-      hsla(215, 85%, 25%, 0.75),
-      hsla(215, 85%, 25%, 0.5)
+      hsla(215, 59%, 28%, 0.75),
+      hsla(215, 59%, 35%, 0.5)
     );
     --gradient-card: linear-gradient(
       145deg,
@@ -85,8 +92,8 @@ All colors MUST be HSL.
     );
     --gradient-ocean: linear-gradient(
       180deg,
-      hsl(200, 95%, 45%) 0%,
-      hsl(215, 85%, 25%) 100%
+      hsl(205, 70%, 45%) 0%,
+      hsl(215, 59%, 28%) 100%
     );
     --gradient-green: linear-gradient(
       135deg,
@@ -95,23 +102,23 @@ All colors MUST be HSL.
     );
     --gradient-overlay: linear-gradient(
       to right,
-      hsla(215, 85%, 25%, 0.9),
-      hsla(215, 85%, 25%, 0.7),
-      hsla(215, 85%, 25%, 0.6)
+      hsla(215, 59%, 28%, 0.9),
+      hsla(215, 59%, 28%, 0.7),
+      hsla(215, 59%, 28%, 0.6)
     );
     --gradient-diagonal: linear-gradient(
       165deg,
-      hsl(25 95% 53%) 0%,
-      hsl(25 95% 48%) 100%
+      hsl(215 59% 38%) 0%,
+      hsl(215 59% 28%) 100%
     );
     --gradient-stats-bg: linear-gradient(
       135deg,
-      hsl(215 85% 20%),
-      hsl(215 85% 15%)
+      hsl(215 59% 23%),
+      hsl(215 59% 18%)
     );
 
     /* Overlay for hero images */
-    --overlay-dark: 215 85% 25%;
+    --overlay-dark: 215 59% 28%;
     --overlay-opacity: 0.75;
 
     --radius: 0.5rem;
