@@ -1,12 +1,14 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
 import { PageLoader, Header } from "./components";
+import { useAOS } from "@/hooks";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home"));
 const ColorPalettePage = lazy(() => import("./pages/ColorPalette"));
 
 function App() {
+  useAOS();
   return (
     <BrowserRouter>
       <Header />
