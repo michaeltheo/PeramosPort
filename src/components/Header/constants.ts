@@ -3,7 +3,7 @@ export const SERVICE_LINKS = [
   { title: "Bulk Cargo Handling", href: "/services/bulk" },
   { title: "Vessel Services", href: "/services/vessel" },
   { title: "Customs & Logistics", href: "/services/customs" },
-] as const;
+];
 
 export const MAIN_NAV_LINKS = [
   { key: "about", href: "/about" },

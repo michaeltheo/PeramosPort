@@ -15,7 +15,7 @@ export const DesktopNavigation = ({ t }: DesktopNavigationProps) => {
   return (
     <nav className="hidden md:flex items-center gap-1">
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="!text-foreground">
           <ServiceDropdown label={t("nav.services")} />
 
           {MAIN_NAV_LINKS.map(({ key, href }) => (

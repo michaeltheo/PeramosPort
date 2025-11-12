@@ -22,13 +22,13 @@ export const NavLink = ({
       to={to}
       onClick={onClick}
       className={cn(
-        "relative inline-block px-3 py-2 text-sm font-medium transition-all hover:text-accent group",
+        "group/navlink relative inline-block px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-accent",
         className
       )}
       {...props}
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
+      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover/navlink:scale-x-100" />
     </Link>
   );
 };

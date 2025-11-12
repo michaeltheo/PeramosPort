@@ -17,19 +17,19 @@ interface ServiceLink {
 
 export const ServiceDropdown = ({ label }: ServiceDropdownProps) => {
   return (
-    <NavigationMenuItem className="group">
-      <NavigationMenuTrigger className="relative hover:text-accent bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent px-3 ">
+    <NavigationMenuItem className="group/dropdown">
+      <NavigationMenuTrigger className="relative border-none !bg-transparent hover:!bg-transparent data-[state=open]:!bg-transparent focus:!bg-transparent active:!bg-transparent px-3 py-2 transition-colors duration-300 hover:text-accent !data-[state=open]:text-accent ">
         {label}
-        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100 group-data-[state=open]:scale-x-100" />
+        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover/dropdown:scale-x-100 group-data-[state=open]/dropdown:scale-x-100" />
       </NavigationMenuTrigger>
-      <NavigationMenuContent className="bg-background/95 backdrop-blur-md border-accent/10">
+      <NavigationMenuContent>
         <ul className="grid w-[280px] gap-2 p-3 bg-background/95">
           {(SERVICE_LINKS as ServiceLink[]).map((link: ServiceLink) => (
-            <li key={link.href}>
+            <li key={link.href} className="group/item">
               <NavigationMenuLink asChild>
                 <Link
                   to={link.href}
-                  className="block select-none rounded-lg p-3 leading-none no-underline outline-none transition-all hover:bg-accent/10 hover:text-accent hover:translate-x-1"
+                  className="block select-none rounded-lg p-3 leading-none no-underline outline-none transition-all group-hover/item:bg-accent/10 group-hover/item:text-accent group-hover/item:translate-x-1"
                 >
                   <div className="text-sm font-medium">{link.title}</div>
                 </Link>
