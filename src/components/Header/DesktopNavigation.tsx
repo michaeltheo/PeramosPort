@@ -6,9 +6,10 @@ import {
 import { ServiceDropdown } from "./ServiceDropdown";
 import { NavLink } from "./NavLink";
 import { MAIN_NAV_LINKS } from "./constants";
+import { TranslationKeys } from "@/types/translations";
 
 interface DesktopNavigationProps {
-  t: (key: string) => string;
+  t: (key: TranslationKeys, fallback?: string) => string;
 }
 
 export const DesktopNavigation = ({ t }: DesktopNavigationProps) => {

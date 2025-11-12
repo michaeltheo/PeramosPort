@@ -3,6 +3,8 @@ export const navigation = {
     home: "Αρχική",
     about: "Σχετικά",
     services: "Υπηρεσίες",
+    infrastructure: "Υποδομή",
+    pricing: "Τιμολόγηση",
     contact: "Επικοινωνία",
     language: "Γλώσσα",
   },

@@ -3,6 +3,8 @@ export const navigation = {
     home: "Home",
     about: "About",
     services: "Services",
+    infrastructure: "Infrastructure",
+    pricing: "Pricing",
     contact: "Contact",
     language: "Language",
   },
