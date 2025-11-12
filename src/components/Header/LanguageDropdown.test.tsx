@@ -62,8 +62,9 @@ describe("LanguageDropdown Component", () => {
     it("displays the current language flag and native name on desktop", () => {
       renderWithLanguageProvider("en");
 
-      // Check for flag and native name
-      expect(screen.getByText(/🇬🇧/)).toBeInTheDocument();
+      // Check for flag icon and native name
+      const flagIcon = screen.getByRole("img", { name: /united kingdom flag/i });
+      expect(flagIcon).toBeInTheDocument();
       expect(screen.getByText(/English/)).toBeInTheDocument();
     });
 
@@ -119,7 +120,7 @@ describe("LanguageDropdown Component", () => {
       });
     });
 
-    it("shows flag emojis for all languages", async () => {
+    it("shows flag icons for all languages", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider();
 
@@ -130,10 +131,10 @@ describe("LanguageDropdown Component", () => {
       await user.click(triggerButton);
 
       await waitFor(() => {
-        // Check for flag emojis
-        expect(screen.getAllByText(/🇬🇧/)[0]).toBeInTheDocument();
-        expect(screen.getByText(/🇬🇷/)).toBeInTheDocument();
-        expect(screen.getByText(/🇧🇬/)).toBeInTheDocument();
+        // Check for flag icons by ARIA labels
+        expect(screen.getByRole("img", { name: /united kingdom flag/i })).toBeInTheDocument();
+        expect(screen.getByRole("img", { name: /greek flag/i })).toBeInTheDocument();
+        expect(screen.getByRole("img", { name: /bulgarian flag/i })).toBeInTheDocument();
       });
     });
 
@@ -183,8 +184,8 @@ describe("LanguageDropdown Component", () => {
 
       // Wait for dropdown to close and language to change
       await waitFor(() => {
-        // The trigger button should now show Greek flag and name
-        expect(screen.getByText(/🇬🇷/)).toBeInTheDocument();
+        // The trigger button should now show Greek flag
+        expect(screen.getAllByRole("img", { name: /greek flag/i })).toHaveLength(1);
       });
     });
 
@@ -355,8 +356,8 @@ describe("LanguageDropdown Component", () => {
     it("initializes with correct default language", () => {
       renderWithLanguageProvider("el");
 
-      // Should display Greek flag
-      expect(screen.getByText(/🇬🇷/)).toBeInTheDocument();
+      // Should display Greek flag icon
+      expect(screen.getByRole("img", { name: /greek flag/i })).toBeInTheDocument();
       expect(screen.getByText(/Ελληνικά/)).toBeInTheDocument();
     });
 
@@ -417,8 +418,8 @@ describe("LanguageDropdown Component", () => {
       await waitFor(() => screen.getByText("Български"));
       await user.click(screen.getByText("Български"));
 
-      // Verify Bulgarian is now selected
-      expect(screen.getByText(/🇧🇬/)).toBeInTheDocument();
+      // Verify Bulgarian flag icon is now displayed
+      expect(screen.getByRole("img", { name: /bulgarian flag/i })).toBeInTheDocument();
     });
   });
 });

@@ -11,34 +11,34 @@ export interface LanguageInfo {
   code: Language;
   name: string;
   nativeName: string;
-  flag: string; // Emoji flag
+  flagCode: string; // Country code for flag icon component
   direction: "ltr" | "rtl"; // Text direction
 }
 
 /**
  * Available languages with their metadata
- * Currently active: English (en) and Greek (el)
+ * Currently active: English (en), Greek (el), and Bulgarian (bg)
  */
 export const AVAILABLE_LANGUAGES: Record<Language, LanguageInfo> = {
   en: {
     code: "en",
     name: "English",
     nativeName: "English",
-    flag: "🇬🇧",
+    flagCode: "en",
     direction: "ltr",
   },
   el: {
     code: "el",
     name: "Greek",
     nativeName: "Ελληνικά",
-    flag: "🇬🇷",
+    flagCode: "el",
     direction: "ltr",
   },
   bg: {
     code: "bg",
     name: "Bulgarian",
     nativeName: "Български",
-    flag: "🇧🇬",
+    flagCode: "bg",
     direction: "ltr",
   },
   // Placeholder entries for future languages

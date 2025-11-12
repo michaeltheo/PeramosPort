@@ -13,6 +13,7 @@ import {
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Language } from "@/types/language";
+import { FlagIcon } from "@/components/icons/FlagIcons";
 
 /**
  * Professional Language Dropdown Component
@@ -53,25 +54,19 @@ export const LanguageDropdown = () => {
           aria-label="Select language"
         >
           <Globe className="h-4 w-4 text-primary group-hover:scale-110 transition-transform duration-300" />
-          <span className="text-sm font-medium text-foreground hidden sm:inline flex items-center gap-1.5">
-            <span
-              className="text-base leading-none"
-              role="img"
-              aria-label={`${currentLangInfo.name} flag`}
-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
-            >
-              {currentLangInfo.flag}
+          <span className="hidden sm:flex items-center gap-2">
+            <FlagIcon
+              countryCode={currentLangInfo.flagCode}
+              className="w-5 h-5 rounded-sm shadow-sm"
+            />
+            <span className="text-sm font-medium text-foreground">
+              {currentLangInfo.nativeName}
             </span>
-            {currentLangInfo.nativeName}
           </span>
-          <span
-            className="text-base font-medium text-foreground sm:hidden leading-none"
-            role="img"
-            aria-label={`${currentLangInfo.name} flag`}
-            style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
-          >
-            {currentLangInfo.flag}
-          </span>
+          <FlagIcon
+            countryCode={currentLangInfo.flagCode}
+            className="w-5 h-5 sm:hidden rounded-sm shadow-sm"
+          />
           <ChevronDown className="h-3 w-3 text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-180" />
         </Button>
       </DropdownMenuTrigger>
@@ -107,15 +102,11 @@ export const LanguageDropdown = () => {
                 )}
               >
                 <div className="flex items-center gap-3 flex-1">
-                  {/* Flag Emoji */}
-                  <span
-                    className="text-2xl leading-none"
-                    role="img"
-                    aria-label={`${langInfo.name} flag`}
-                    style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
-                  >
-                    {langInfo.flag}
-                  </span>
+                  {/* Flag Icon */}
+                  <FlagIcon
+                    countryCode={langInfo.flagCode}
+                    className="w-8 h-6 rounded-sm shadow-sm border border-border"
+                  />
 
                   {/* Language Names */}
                   <div className="flex flex-col">
