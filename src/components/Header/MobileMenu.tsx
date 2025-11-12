@@ -9,7 +9,8 @@ import {
   Building2,
   DollarSign,
   Mail,
-  X
+  X,
+  ChevronRight
 } from "lucide-react";
 
 interface MobileMenuProps {
@@ -26,109 +27,93 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
 
   return (
     <>
-      {/* Enhanced Backdrop with Blur */}
+      {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300"
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden animate-in fade-in duration-200"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Modern Drawer with Maritime Theme */}
+      {/* Mobile Menu Drawer */}
       <div
-        className="fixed top-0 right-0 h-screen w-[320px] bg-gradient-to-br from-background via-background to-maritime-sky/10 border-l-2 border-primary/20 z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+        className="fixed top-0 right-0 h-full w-[85vw] max-w-[380px] bg-white z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        <nav className="pt-6 pb-6 px-4 flex flex-col gap-2">
-          {/* Close Button */}
-          <div className="flex justify-end mb-2">
-            <button
-              onClick={onClose}
-              className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
-              aria-label="Close menu"
-            >
-              <X className="w-6 h-6 text-primary" />
-            </button>
+        {/* Header */}
+        <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-4 bg-white border-b border-border/50">
+          <div>
+            <h2 className="text-lg font-bold text-foreground">Menu</h2>
+            <p className="text-xs text-muted-foreground">Nea Peramos Port</p>
           </div>
+          <button
+            onClick={onClose}
+            className="p-2 -mr-2 rounded-full hover:bg-neutral-100 transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5 text-foreground" />
+          </button>
+        </div>
+
+        {/* Navigation Content */}
+        <nav className="p-5">
           {/* Services Section */}
-          <div className="mb-2">
-            <div
-              className="px-3 py-2 font-bold text-xs text-primary uppercase tracking-widest flex items-center gap-2"
-              data-aos="fade-left"
-              data-aos-delay="0"
-            >
-              <Ship className="w-4 h-4" />
+          <div className="mb-6">
+            <h3 className="px-1 mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
               {t("nav.services")}
-            </div>
-            <div className="space-y-1 mt-2">
+            </h3>
+            <div className="space-y-1">
               {SERVICE_LINKS.map((link, index) => {
                 const Icon = serviceIcons[index];
                 return (
-                  <div key={link.href} className="group">
-                    <Link
-                      to={link.href}
-                      className="relative flex items-center gap-3 px-4 py-3.5 ml-2 text-sm font-medium text-foreground bg-white hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 rounded-xl border border-transparent hover:border-primary/20 transition-all duration-300 hover:translate-x-1 hover:shadow-md"
-                      onClick={onClose}
-                      data-aos="fade-left"
-                      data-aos-delay={50 * (index + 1)}
-                    >
-                      <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent text-white shadow-sm group-hover:shadow-md transition-shadow">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className="flex-1">{link.title}</span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors" />
-                    </Link>
-                  </div>
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={onClose}
+                    className="group flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 transition-colors"
+                  >
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/15 transition-colors">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="flex-1 text-sm font-medium text-foreground">
+                      {link.title}
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
                 );
               })}
             </div>
           </div>
 
           {/* Divider */}
-          <div
-            className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-4 mx-3"
-            data-aos="fade-left"
-            data-aos-delay="250"
-          />
+          <div className="h-px bg-border my-6" />
 
-          {/* Main Navigation Links */}
-          <div className="space-y-1">
-            {MAIN_NAV_LINKS.map(({ key, href }, index) => {
-              const Icon = navIcons[index];
-              return (
-                <div key={href} className="group">
+          {/* Main Navigation */}
+          <div>
+            <h3 className="px-1 mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+              Navigation
+            </h3>
+            <div className="space-y-1">
+              {MAIN_NAV_LINKS.map(({ key, href }, index) => {
+                const Icon = navIcons[index];
+                return (
                   <Link
+                    key={href}
                     to={href}
-                    className="relative flex items-center gap-3 px-4 py-3.5 text-sm font-semibold text-foreground bg-white hover:bg-gradient-to-r hover:from-accent/5 hover:to-primary/5 rounded-xl border border-transparent hover:border-accent/20 transition-all duration-300 hover:translate-x-1 hover:shadow-md"
                     onClick={onClose}
-                    data-aos="fade-left"
-                    data-aos-delay={300 + index * 50}
+                    className="group flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-neutral-50 active:bg-neutral-100 transition-colors"
                   >
-                    <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-accent/10 to-primary/10 text-accent group-hover:from-accent/20 group-hover:to-primary/20 transition-colors">
-                      <Icon className="w-4 h-4" />
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-accent/10 text-accent group-hover:bg-accent/15 transition-colors">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="flex-1">{t(`nav.${key}`)}</span>
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors" />
+                    <span className="flex-1 text-sm font-medium text-foreground">
+                      {t(`nav.${key}`)}
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Footer Section */}
-          <div
-            className="mt-6 pt-6 px-3 border-t border-border/50"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 border border-primary/10">
-              <p className="text-xs text-foreground/60 font-medium">
-                Connecting commerce with the sea
-              </p>
-              <p className="text-xs text-primary font-semibold mt-1">
-                © 2024 Nea Peramos Port
-              </p>
+                );
+              })}
             </div>
           </div>
         </nav>
