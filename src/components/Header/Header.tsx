@@ -14,9 +14,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
-        isScrolled ? "" : ""
-      }`}
+      className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 transition-all duration-300"
     >
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
