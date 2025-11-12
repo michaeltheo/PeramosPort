@@ -1,20 +1,18 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { VideoHero } from "@/components/VideoHero";
 import { StatsSection } from "./sections/";
-import MainPortPeramosDrone from "@/assets/MainPortPeramosDrone.mp4";
+import MainVideoNeaPeramos from "@/assets/MainVideoNeaPeramos.mp4";
 
 const Home = () => {
   const { t } = useLanguage();
-  // TODO: Update this path to your actual video file location
-  const heroVideo = MainPortPeramosDrone;
 
   return (
     <div className="min-h-screen">
-      {/* Main hero Section */}
+      {/* Main hero Section - Full screen video */}
       <VideoHero
         tagline={t("home.videoHero.tagline")}
         subtitle={t("home.videoHero.subtitle")}
-        backgroundVideo={heroVideo}
+        backgroundVideo={MainVideoNeaPeramos}
         showCTA={true}
       />
 
