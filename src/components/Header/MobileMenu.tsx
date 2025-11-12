@@ -13,11 +13,12 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
+import { TranslationKeys } from "@/types/translations";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  t: (key: string) => string;
+  t: (key: TranslationKeys, fallback?: string) => string;
 }
 
 const serviceIcons = [Container, Package, Ship, FileCheck];

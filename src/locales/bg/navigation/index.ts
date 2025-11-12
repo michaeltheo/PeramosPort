@@ -3,6 +3,8 @@ export const navigation = {
     home: "Начало",
     about: "За нас",
     services: "Услуги",
+    infrastructure: "Инфраструктура",
+    pricing: "Ценообразуване",
     contact: "Контакт",
     language: "Език",
   },

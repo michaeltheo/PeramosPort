@@ -1,40 +1,25 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import { Button } from "@/components/ui";
+import { VideoHero } from "@/components/VideoHero";
+import { StatsSection } from "./sections/";
+import VideoTest from "@/assets/VideoTest.mp4";
 
 const Home = () => {
   const { t } = useLanguage();
+  // TODO: Update this path to your actual video file location
+  const heroVideo = VideoTest;
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="gradient-hero text-white py-20 lg:py-32">
-        <div className="container text-center space-y-6">
-          <h1 className="text-4xl lg:text-6xl font-bold">
-            {t("home.hero.title")}
-          </h1>
-          <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto">
-            {t("home.hero.subtitle")}
-          </p>
-          <p className="text-lg opacity-80 max-w-2xl mx-auto">
-            {t("home.hero.description")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button
-              size="lg"
-              className="bg-white text-primary hover:bg-white/90"
-            >
-              {t("nav.services")}
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white/10"
-            >
-              {t("nav.about")}
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Main hero Section */}
+      <VideoHero
+        tagline={t("home.videoHero.tagline")}
+        subtitle={t("home.videoHero.subtitle")}
+        backgroundVideo={heroVideo}
+        showCTA={true}
+      />
+
+      {/* Stats Section */}
+      <StatsSection />
 
       {/* About Section */}
       <section className="py-16">
