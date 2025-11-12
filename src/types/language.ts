@@ -11,7 +11,6 @@ export interface LanguageInfo {
   code: Language;
   name: string;
   nativeName: string;
-  flagCode: string; // Country code for flag icon component
   direction: "ltr" | "rtl"; // Text direction
 }
 
@@ -24,21 +23,18 @@ export const AVAILABLE_LANGUAGES: Record<Language, LanguageInfo> = {
     code: "en",
     name: "English",
     nativeName: "English",
-    flagCode: "en",
     direction: "ltr",
   },
   el: {
     code: "el",
     name: "Greek",
     nativeName: "Ελληνικά",
-    flagCode: "el",
     direction: "ltr",
   },
   bg: {
     code: "bg",
     name: "Bulgarian",
     nativeName: "Български",
-    flagCode: "bg",
     direction: "ltr",
   },
   // Placeholder entries for future languages

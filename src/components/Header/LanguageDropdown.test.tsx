@@ -59,12 +59,11 @@ describe("LanguageDropdown Component", () => {
       expect(container).toBeTruthy();
     });
 
-    it("displays the current language flag and native name on desktop", () => {
+    it("displays the current language code badge and native name", () => {
       renderWithLanguageProvider("en");
 
-      // Check for flag icon and native name
-      const flagIcon = screen.getByRole("img", { name: /united kingdom flag/i });
-      expect(flagIcon).toBeInTheDocument();
+      // Check for language code badge and native name
+      expect(screen.getByText("EN")).toBeInTheDocument();
       expect(screen.getByText(/English/)).toBeInTheDocument();
     });
 
@@ -96,9 +95,9 @@ describe("LanguageDropdown Component", () => {
 
       await user.click(triggerButton);
 
-      // Wait for dropdown to appear
+      // Wait for dropdown to appear with language options
       await waitFor(() => {
-        expect(screen.getByText("Select Language")).toBeInTheDocument();
+        expect(screen.getByText("Greek")).toBeInTheDocument();
       });
     });
 
@@ -120,7 +119,7 @@ describe("LanguageDropdown Component", () => {
       });
     });
 
-    it("shows flag icons for all languages", async () => {
+    it("shows language code badges for all languages", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider();
 
@@ -131,10 +130,10 @@ describe("LanguageDropdown Component", () => {
       await user.click(triggerButton);
 
       await waitFor(() => {
-        // Check for flag icons by ARIA labels
-        expect(screen.getByRole("img", { name: /united kingdom flag/i })).toBeInTheDocument();
-        expect(screen.getByRole("img", { name: /greek flag/i })).toBeInTheDocument();
-        expect(screen.getByRole("img", { name: /bulgarian flag/i })).toBeInTheDocument();
+        // Check for language code badges (multiple EN due to trigger + dropdown)
+        expect(screen.getAllByText("EN").length).toBeGreaterThan(0);
+        expect(screen.getByText("EL")).toBeInTheDocument();
+        expect(screen.getByText("BG")).toBeInTheDocument();
       });
     });
 
@@ -155,7 +154,6 @@ describe("LanguageDropdown Component", () => {
         expect(screen.getByText("Български")).toBeInTheDocument();
 
         // English names
-        expect(screen.getAllByText("English")).toHaveLength(2); // Native name + English name
         expect(screen.getByText("Greek")).toBeInTheDocument();
         expect(screen.getByText("Bulgarian")).toBeInTheDocument();
       });
@@ -184,12 +182,12 @@ describe("LanguageDropdown Component", () => {
 
       // Wait for dropdown to close and language to change
       await waitFor(() => {
-        // The trigger button should now show Greek flag
-        expect(screen.getAllByRole("img", { name: /greek flag/i })).toHaveLength(1);
+        // The trigger button should now show Greek language code
+        expect(screen.getByText("EL")).toBeInTheDocument();
       });
     });
 
-    it("shows check indicator for the currently selected language", async () => {
+    it("highlights the currently selected language", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider("en");
 
@@ -200,16 +198,13 @@ describe("LanguageDropdown Component", () => {
       await user.click(triggerButton);
 
       await waitFor(() => {
-        // The active language should have a check indicator
-        // We check for the radioitem with checked state
-        const englishOption = screen
-          .getAllByText("English")[0]
-          .closest('[role="menuitemradio"]');
-        expect(englishOption).toHaveAttribute("data-state", "checked");
+        // The active language should have a highlighted background
+        const englishOption = screen.getAllByText("English")[0].closest('[role="menuitem"]');
+        expect(englishOption).toHaveClass(expect.stringContaining("bg-primary"));
       });
     });
 
-    it("updates check indicator when language is changed", async () => {
+    it("updates highlight when language is changed", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider("en");
 
@@ -228,14 +223,14 @@ describe("LanguageDropdown Component", () => {
       const bulgarianOption = screen.getByText("Български");
       await user.click(bulgarianOption);
 
-      // Reopen dropdown to verify check indicator
+      // Reopen dropdown to verify highlight
       await user.click(triggerButton);
 
       await waitFor(() => {
-        const bulgarianRadio = screen
+        const bulgarianItem = screen
           .getByText("Български")
-          .closest('[role="menuitemradio"]');
-        expect(bulgarianRadio).toHaveAttribute("data-state", "checked");
+          .closest('[role="menuitem"]');
+        expect(bulgarianItem).toHaveClass(expect.stringContaining("bg-primary"));
       });
     });
   });
@@ -251,7 +246,7 @@ describe("LanguageDropdown Component", () => {
       expect(triggerButton).toHaveAttribute("aria-label", "Select language");
     });
 
-    it("uses radio group for language selection", async () => {
+    it("uses menu items for language selection", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider();
 
@@ -262,26 +257,8 @@ describe("LanguageDropdown Component", () => {
       await user.click(triggerButton);
 
       await waitFor(() => {
-        const radioItems = screen.getAllByRole("menuitemradio");
-        expect(radioItems).toHaveLength(3); // en, el, bg
-      });
-    });
-
-    it("flags have proper aria-labels", async () => {
-      const user = userEvent.setup();
-      renderWithLanguageProvider();
-
-      const triggerButton = screen.getByRole("button", {
-        name: /select language/i,
-      });
-
-      await user.click(triggerButton);
-
-      await waitFor(() => {
-        // Check for aria-label on flag emojis
-        const flags = screen.getAllByRole("img");
-        expect(flags.length).toBeGreaterThan(0);
-        expect(flags[0]).toHaveAttribute("aria-label");
+        const menuItems = screen.getAllByRole("menuitem");
+        expect(menuItems).toHaveLength(3); // en, el, bg
       });
     });
   });
@@ -298,7 +275,7 @@ describe("LanguageDropdown Component", () => {
       expect(triggerButton).toHaveClass("hover:bg-primary/10");
     });
 
-    it("applies active gradient to selected language option", async () => {
+    it("applies highlight to selected language option", async () => {
       const user = userEvent.setup();
       renderWithLanguageProvider("en");
 
@@ -311,43 +288,24 @@ describe("LanguageDropdown Component", () => {
       await waitFor(() => {
         const activeOption = screen
           .getAllByText("English")[0]
-          .closest('[role="menuitemradio"]');
+          .closest('[role="menuitem"]');
 
-        // Check for gradient classes on active item
-        expect(activeOption).toHaveClass(
-          expect.stringContaining("from-primary/10")
-        );
-      });
-    });
-
-    it("displays dropdown with proper alignment", async () => {
-      const user = userEvent.setup();
-      renderWithLanguageProvider();
-
-      const triggerButton = screen.getByRole("button", {
-        name: /select language/i,
-      });
-
-      await user.click(triggerButton);
-
-      await waitFor(() => {
-        // Dropdown content should exist
-        const dropdownContent = screen.getByText("Select Language").closest("div");
-        expect(dropdownContent).toBeInTheDocument();
+        // Check for background classes on active item
+        expect(activeOption).toHaveClass(expect.stringContaining("bg-primary"));
       });
     });
   });
 
   describe("Responsive Behavior", () => {
-    it("hides native name on small screens and shows only flag", () => {
+    it("hides native name on small screens and shows only badge", () => {
       const { container } = renderWithLanguageProvider("en");
 
-      // Check for sm:hidden class on flag-only span
-      const flagOnlySpan = container.querySelector(".sm\\:hidden");
-      expect(flagOnlySpan).toBeInTheDocument();
+      // Check for sm:hidden class on badge-only span
+      const badgeOnlySpan = container.querySelector(".sm\\:hidden");
+      expect(badgeOnlySpan).toBeInTheDocument();
 
-      // Check for hidden sm:inline class on full name span
-      const fullNameSpan = container.querySelector(".hidden.sm\\:inline");
+      // Check for hidden sm:flex class on full name span
+      const fullNameSpan = container.querySelector(".hidden.sm\\:flex");
       expect(fullNameSpan).toBeInTheDocument();
     });
   });
@@ -356,8 +314,8 @@ describe("LanguageDropdown Component", () => {
     it("initializes with correct default language", () => {
       renderWithLanguageProvider("el");
 
-      // Should display Greek flag icon
-      expect(screen.getByRole("img", { name: /greek flag/i })).toBeInTheDocument();
+      // Should display Greek language code and name
+      expect(screen.getByText("EL")).toBeInTheDocument();
       expect(screen.getByText(/Ελληνικά/)).toBeInTheDocument();
     });
 
@@ -418,8 +376,8 @@ describe("LanguageDropdown Component", () => {
       await waitFor(() => screen.getByText("Български"));
       await user.click(screen.getByText("Български"));
 
-      // Verify Bulgarian flag icon is now displayed
-      expect(screen.getByRole("img", { name: /bulgarian flag/i })).toBeInTheDocument();
+      // Verify Bulgarian language code is now displayed
+      expect(screen.getByText("BG")).toBeInTheDocument();
     });
   });
 });
