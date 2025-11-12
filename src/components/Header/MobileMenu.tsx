@@ -9,7 +9,6 @@ import {
   Building2,
   DollarSign,
   Mail,
-  Waves,
   X
 } from "lucide-react";
 
@@ -41,31 +40,17 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        {/* Header Section with Wave Pattern */}
-        <div className="relative bg-gradient-to-br from-primary via-primary to-accent pt-16 pb-6 px-5 overflow-hidden">
-          {/* Decorative Wave Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <Waves className="absolute top-4 right-4 w-32 h-32 rotate-12" />
-            <Waves className="absolute bottom-2 left-2 w-24 h-24 -rotate-12" />
-          </div>
-
+        <nav className="pt-6 pb-6 px-4 flex flex-col gap-2">
           {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
-            aria-label="Close menu"
-          >
-            <X className="w-5 h-5 text-white" />
-          </button>
-
-          {/* Menu Title */}
-          <div className="relative z-10">
-            <h2 className="text-white text-xl font-bold tracking-wide">Navigation</h2>
-            <p className="text-white/80 text-sm mt-1">Nea Peramos Port</p>
+          <div className="flex justify-end mb-2">
+            <button
+              onClick={onClose}
+              className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
+              aria-label="Close menu"
+            >
+              <X className="w-6 h-6 text-primary" />
+            </button>
           </div>
-        </div>
-
-        <nav className="py-6 px-4 flex flex-col gap-2">
           {/* Services Section */}
           <div className="mb-2">
             <div
@@ -100,17 +85,12 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
             </div>
           </div>
 
-          {/* Elegant Divider with Wave Effect */}
+          {/* Divider */}
           <div
-            className="relative my-4 mx-3"
+            className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent my-4 mx-3"
             data-aos="fade-left"
             data-aos-delay="250"
-          >
-            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-3">
-              <Waves className="w-5 h-5 text-primary/40" />
-            </div>
-          </div>
+          />
 
           {/* Main Navigation Links */}
           <div className="space-y-1">
