@@ -12,7 +12,7 @@ import {
   Mail,
   X,
   ChevronRight,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
 
 interface MobileMenuProps {
@@ -46,14 +46,10 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
         aria-label="Mobile navigation"
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between px-5 py-4 bg-white border-b border-border/50">
-          <div>
-            <h2 className="text-lg font-bold text-foreground">Menu</h2>
-            <p className="text-xs text-muted-foreground">Nea Peramos Port</p>
-          </div>
+        <div className="sticky top-0 z-10  py-2 flex justify-end bg-white border-b border-border/50">
           <button
             onClick={onClose}
-            className="p-2 -mr-2 rounded-full hover:bg-neutral-100 transition-colors"
+            className="p-2 px-5 rounded-full hover:bg-neutral-100 transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5 text-foreground" />
@@ -73,7 +69,7 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
               </h3>
               <ChevronDown
                 className={`w-4 h-4 text-muted-foreground transition-transform duration-200 ${
-                  isServicesOpen ? 'rotate-180' : ''
+                  isServicesOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
@@ -95,7 +91,6 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
                       <span className="flex-1 text-sm font-medium text-foreground">
                         {link.title}
                       </span>
-                      <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                     </Link>
                   );
                 })}
@@ -108,9 +103,6 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
 
           {/* Main Navigation */}
           <div>
-            <h3 className="px-1 mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-              Navigation
-            </h3>
             <div className="space-y-1">
               {MAIN_NAV_LINKS.map(({ key, href }, index) => {
                 const Icon = navIcons[index];
@@ -127,7 +119,6 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
                     <span className="flex-1 text-sm font-medium text-foreground">
                       {t(`nav.${key}`)}
                     </span>
-                    <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 );
               })}
