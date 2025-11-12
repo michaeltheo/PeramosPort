@@ -5,18 +5,16 @@ import { Menu, X, Anchor } from "lucide-react";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { MobileMenu } from "./MobileMenu";
 import { useHeaderState } from "./useHeaderState";
-import { LanguageDropdown } from "./LanguageDropdown";
+import { LanguageDropdown } from "../LanguageDropdown/";
 
 export const Header = () => {
   const { t } = useLanguage();
-  const { mobileMenuOpen, isScrolled, closeMobileMenu, toggleMobileMenu } =
+  const { mobileMenuOpen, closeMobileMenu, toggleMobileMenu } =
     useHeaderState();
 
   return (
     <>
-      <header
-        className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 transition-all duration-300"
-      >
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 transition-all duration-300">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <Link
@@ -47,9 +45,15 @@ export const Header = () => {
             >
               <div className="relative">
                 {mobileMenuOpen ? (
-                  <X className="h-6 w-6 text-primary transition-transform duration-300 rotate-90" aria-hidden="true" />
+                  <X
+                    className="h-6 w-6 text-primary transition-transform duration-300 rotate-90"
+                    aria-hidden="true"
+                  />
                 ) : (
-                  <Menu className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+                  <Menu
+                    className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300"
+                    aria-hidden="true"
+                  />
                 )}
                 {/* Active indicator dot */}
                 {!mobileMenuOpen && (

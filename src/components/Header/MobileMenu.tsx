@@ -11,7 +11,6 @@ import {
   DollarSign,
   Mail,
   X,
-  ChevronRight,
   ChevronDown,
 } from "lucide-react";
 
@@ -41,13 +40,13 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
       if (!menuRef.current) return [];
 
       const focusableSelectors = [
-        'a[href]',
-        'button:not([disabled])',
-        'textarea:not([disabled])',
-        'input:not([disabled])',
-        'select:not([disabled])',
-        '[tabindex]:not([tabindex="-1"])'
-      ].join(', ');
+        "a[href]",
+        "button:not([disabled])",
+        "textarea:not([disabled])",
+        "input:not([disabled])",
+        "select:not([disabled])",
+        '[tabindex]:not([tabindex="-1"])',
+      ].join(", ");
 
       return Array.from(
         menuRef.current.querySelectorAll<HTMLElement>(focusableSelectors)
@@ -62,7 +61,7 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
 
     // Handle keyboard events for focus trapping
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key !== 'Tab') return;
+      if (e.key !== "Tab") return;
 
       const focusableElements = getFocusableElements();
       if (focusableElements.length === 0) return;
@@ -89,18 +88,18 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
 
     // Handle Escape key to close menu
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         onClose();
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleEscape);
 
     // Cleanup and restore focus when menu closes
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keydown', handleEscape);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", handleEscape);
 
       // Restore focus to the previously focused element
       if (previouslyFocusedElement.current) {

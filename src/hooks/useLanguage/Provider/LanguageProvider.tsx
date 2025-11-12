@@ -105,12 +105,13 @@ export const LanguageProvider = ({
       try {
         // Split the key by dots to support nested objects
         const keys = key.split(".");
-        let value: any = translations[language];
+        let value: unknown =
+          translations[language as keyof typeof translations];
 
         // Traverse the nested object
         for (const k of keys) {
           if (value && typeof value === "object" && k in value) {
-            value = value[k];
+            value = (value as Record<string, unknown>)[k];
           } else {
             value = undefined;
             break;
