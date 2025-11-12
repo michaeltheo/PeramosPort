@@ -38,23 +38,29 @@ export const Header = () => {
         <DesktopNavigation t={t} />
 
         {/* Right Side Actions */}
-        <div className="flex items-center p-4 w-[fit]">
+        <div className="flex items-center gap-2 p-4 w-[fit]">
           <LanguageToggle language={language} onToggle={toggleLanguage} />
 
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden relative group hover:bg-primary/10 transition-all duration-300"
             onClick={toggleMobileMenu}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
+            <div className="relative">
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6 text-primary transition-transform duration-300 rotate-90" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6 text-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
+              )}
+              {/* Active indicator dot */}
+              {!mobileMenuOpen && (
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse" />
+              )}
+            </div>
           </Button>
         </div>
       </div>

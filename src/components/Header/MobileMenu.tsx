@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
 import { SERVICE_LINKS, MAIN_NAV_LINKS } from "./constants";
+import {
+  Container,
+  Package,
+  Ship,
+  FileCheck,
+  Info,
+  Building2,
+  DollarSign,
+  Mail,
+  Waves,
+  X
+} from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -7,71 +19,138 @@ interface MobileMenuProps {
   t: (key: string) => string;
 }
 
+const serviceIcons = [Container, Package, Ship, FileCheck];
+const navIcons = [Info, Building2, DollarSign, Mail];
+
 export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
   if (!isOpen) return null;
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Enhanced Backdrop with Blur */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 md:hidden"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Drawer */}
+      {/* Modern Drawer with Maritime Theme */}
       <div
-        className="fixed top-0 right-0 h-screen w-[280px] bg-background border-l border-border z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+        className="fixed top-0 right-0 h-screen w-[320px] bg-gradient-to-br from-background via-background to-maritime-sky/10 border-l-2 border-primary/20 z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        <nav className="pt-20 pb-6 px-3 flex flex-col gap-1 text-foreground">
-          {/* Services Section */}
-          <div
-            className="px-3 py-2 font-semibold text-xs text-foreground/70 uppercase tracking-wider"
-            data-aos="fade-left"
-            data-aos-delay="0"
-          >
-            {t("nav.services")}
+        {/* Header Section with Wave Pattern */}
+        <div className="relative bg-gradient-to-br from-primary via-primary to-accent pt-16 pb-6 px-5 overflow-hidden">
+          {/* Decorative Wave Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <Waves className="absolute top-4 right-4 w-32 h-32 rotate-12" />
+            <Waves className="absolute bottom-2 left-2 w-24 h-24 -rotate-12" />
           </div>
-          {SERVICE_LINKS.map((link, index) => (
-            <div key={link.href} className="group">
-              <Link
-                to={link.href}
-                className="relative block px-3 py-3 ml-2 text-sm text-foreground transition-all hover:text-accent hover:translate-x-1 rounded-lg"
-                onClick={onClose}
-                data-aos="fade-left"
-                data-aos-delay={50 * (index + 1)}
-              >
-                {link.title}
-                <span className="absolute bottom-2 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
-              </Link>
-            </div>
-          ))}
 
-          {/* Divider */}
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5 text-white" />
+          </button>
+
+          {/* Menu Title */}
+          <div className="relative z-10">
+            <h2 className="text-white text-xl font-bold tracking-wide">Navigation</h2>
+            <p className="text-white/80 text-sm mt-1">Nea Peramos Port</p>
+          </div>
+        </div>
+
+        <nav className="py-6 px-4 flex flex-col gap-2">
+          {/* Services Section */}
+          <div className="mb-2">
+            <div
+              className="px-3 py-2 font-bold text-xs text-primary uppercase tracking-widest flex items-center gap-2"
+              data-aos="fade-left"
+              data-aos-delay="0"
+            >
+              <Ship className="w-4 h-4" />
+              {t("nav.services")}
+            </div>
+            <div className="space-y-1 mt-2">
+              {SERVICE_LINKS.map((link, index) => {
+                const Icon = serviceIcons[index];
+                return (
+                  <div key={link.href} className="group">
+                    <Link
+                      to={link.href}
+                      className="relative flex items-center gap-3 px-4 py-3.5 ml-2 text-sm font-medium text-foreground bg-white hover:bg-gradient-to-r hover:from-primary/5 hover:to-accent/5 rounded-xl border border-transparent hover:border-primary/20 transition-all duration-300 hover:translate-x-1 hover:shadow-md"
+                      onClick={onClose}
+                      data-aos="fade-left"
+                      data-aos-delay={50 * (index + 1)}
+                    >
+                      <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent text-white shadow-sm group-hover:shadow-md transition-shadow">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="flex-1">{link.title}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Elegant Divider with Wave Effect */}
           <div
-            className="h-px bg-border my-3 mx-3"
+            className="relative my-4 mx-3"
             data-aos="fade-left"
             data-aos-delay="250"
-          />
+          >
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background px-3">
+              <Waves className="w-5 h-5 text-primary/40" />
+            </div>
+          </div>
 
           {/* Main Navigation Links */}
-          {MAIN_NAV_LINKS.map(({ key, href }, index) => (
-            <div key={href} className="group">
-              <Link
-                to={href}
-                className="relative block px-3 py-3 text-sm font-medium text-foreground transition-all hover:text-accent hover:translate-x-1 rounded-lg"
-                onClick={onClose}
-                data-aos="fade-left"
-                data-aos-delay={300 + index * 50}
-              >
-                {t(`nav.${key}`)}
-                <span className="absolute bottom-2 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
-              </Link>
+          <div className="space-y-1">
+            {MAIN_NAV_LINKS.map(({ key, href }, index) => {
+              const Icon = navIcons[index];
+              return (
+                <div key={href} className="group">
+                  <Link
+                    to={href}
+                    className="relative flex items-center gap-3 px-4 py-3.5 text-sm font-semibold text-foreground bg-white hover:bg-gradient-to-r hover:from-accent/5 hover:to-primary/5 rounded-xl border border-transparent hover:border-accent/20 transition-all duration-300 hover:translate-x-1 hover:shadow-md"
+                    onClick={onClose}
+                    data-aos="fade-left"
+                    data-aos-delay={300 + index * 50}
+                  >
+                    <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-accent/10 to-primary/10 text-accent group-hover:from-accent/20 group-hover:to-primary/20 transition-colors">
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <span className="flex-1">{t(`nav.${key}`)}</span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent/0 group-hover:bg-accent transition-colors" />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Footer Section */}
+          <div
+            className="mt-6 pt-6 px-3 border-t border-border/50"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-4 border border-primary/10">
+              <p className="text-xs text-foreground/60 font-medium">
+                Connecting commerce with the sea
+              </p>
+              <p className="text-xs text-primary font-semibold mt-1">
+                © 2024 Nea Peramos Port
+              </p>
             </div>
-          ))}
+          </div>
         </nav>
       </div>
     </>
