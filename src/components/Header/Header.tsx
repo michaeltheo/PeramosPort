@@ -1,63 +1,62 @@
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { Button } from "@/components/ui";
+import { Menu, X, Anchor } from "lucide-react";
+import { DesktopNavigation } from "./DesktopNavigation";
+import { MobileMenu } from "./MobileMenu";
+import { useHeaderState } from "./useHeaderState";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const Header = () => {
-  const { t } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
+  const { mobileMenuOpen, closeMobileMenu, toggleMobileMenu } =
+    useHeaderState();
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "el" : "en");
+  };
 
   return (
-    <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center space-x-2 font-bold text-lg text-primary hover:text-primary-hover transition-colors"
+          className="flex items-center gap-2 font-bold text-xl"
+          aria-label="Nea Peramos Port - Home"
         >
-          <span className="text-2xl">⚓</span>
-          <span className="hidden sm:inline">
-            {t("home.hero.title", "Nea Peramos Port")}
-          </span>
+          <Anchor className="h-6 w-6 text-primary" aria-hidden="true" />
+          <span className="hidden md:inline-block">Nea Peramos Port</span>
+          <span className="md:hidden">NP Port</span>
         </Link>
 
-        {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <Link
-            to="/"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            {t("nav.home")}
-          </Link>
-          <Link
-            to="/about"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            {t("nav.about")}
-          </Link>
-          <Link
-            to="/services"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            {t("nav.services")}
-          </Link>
-          <Link
-            to="/contact"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            {t("nav.contact")}
-          </Link>
-        </nav>
+        {/* Desktop Navigation */}
+        <DesktopNavigation t={t} />
 
-        {/* Actions */}
-        <div className="flex items-center space-x-4">
-          <LanguageSwitcher />
+        {/* Right Side Actions */}
+        <div className="flex items-center p-4 w-[fit]">
+          <LanguageToggle language={language} onToggle={toggleLanguage} />
 
-          {/* Mobile menu button (for future implementation) */}
-          <Button variant="ghost" size="sm" className="md:hidden">
-            ☰
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={toggleMobileMenu}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
           </Button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={mobileMenuOpen} onClose={closeMobileMenu} t={t} />
     </header>
   );
 };
