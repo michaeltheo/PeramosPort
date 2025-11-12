@@ -2,7 +2,7 @@
  * Supported languages in the application
  * Add more language codes here as you expand
  */
-export type Language = "en" | "el" | "bg" | "de" | "fr" | "it" | "es";
+export type Language = "en" | "el" | "bg";
 
 /**
  * Language metadata for display and configuration
@@ -38,7 +38,7 @@ export const AVAILABLE_LANGUAGES: Record<Language, LanguageInfo> = {
     direction: "ltr",
   },
   // Placeholder entries for future languages
-} as const;
+};
 
 /**
  * Languages that are currently enabled in the application
