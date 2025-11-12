@@ -1,12 +1,12 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { VideoHero } from "@/components/VideoHero";
 import { StatsSection } from "./sections/";
-import VideoTest from "@/assets/VideoTest.mp4";
+import MainPortPeramosDrone from "@/assets/MainPortPeramosDrone.mp4";
 
 const Home = () => {
   const { t } = useLanguage();
   // TODO: Update this path to your actual video file location
-  const heroVideo = VideoTest;
+  const heroVideo = MainPortPeramosDrone;
 
   return (
     <div className="min-h-screen">
