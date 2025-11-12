@@ -115,7 +115,7 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden animate-in fade-in duration-200"
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] md:hidden animate-in fade-in duration-200"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -123,7 +123,7 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
       {/* Mobile Menu Drawer */}
       <div
         ref={menuRef}
-        className="fixed top-0 right-0 h-full w-[85vw] max-w-[380px] bg-white z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
+        className="fixed top-0 right-0 h-full w-[85vw] max-w-[380px] bg-white z-[70] md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
