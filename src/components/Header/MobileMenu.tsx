@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { SERVICE_LINKS, MAIN_NAV_LINKS } from "./constants";
 import {
@@ -26,6 +26,88 @@ const navIcons = [Info, Building2, DollarSign, Mail];
 
 export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
   const [isServicesOpen, setIsServicesOpen] = useState(true);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const previouslyFocusedElement = useRef<HTMLElement | null>(null);
+
+  // Focus trap effect
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // Store the currently focused element to restore later
+    previouslyFocusedElement.current = document.activeElement as HTMLElement;
+
+    // Get all focusable elements within the menu
+    const getFocusableElements = () => {
+      if (!menuRef.current) return [];
+
+      const focusableSelectors = [
+        'a[href]',
+        'button:not([disabled])',
+        'textarea:not([disabled])',
+        'input:not([disabled])',
+        'select:not([disabled])',
+        '[tabindex]:not([tabindex="-1"])'
+      ].join(', ');
+
+      return Array.from(
+        menuRef.current.querySelectorAll<HTMLElement>(focusableSelectors)
+      );
+    };
+
+    // Focus the first element (close button)
+    const focusableElements = getFocusableElements();
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
+
+    // Handle keyboard events for focus trapping
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      const focusableElements = getFocusableElements();
+      if (focusableElements.length === 0) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      const activeElement = document.activeElement;
+
+      // Shift + Tab: Move focus backwards
+      if (e.shiftKey) {
+        if (activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        }
+      }
+      // Tab: Move focus forwards
+      else {
+        if (activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    };
+
+    // Handle Escape key to close menu
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleEscape);
+
+    // Cleanup and restore focus when menu closes
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleEscape);
+
+      // Restore focus to the previously focused element
+      if (previouslyFocusedElement.current) {
+        previouslyFocusedElement.current.focus();
+      }
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -40,6 +122,7 @@ export const MobileMenu = ({ isOpen, onClose, t }: MobileMenuProps) => {
 
       {/* Mobile Menu Drawer */}
       <div
+        ref={menuRef}
         className="fixed top-0 right-0 h-full w-[85vw] max-w-[380px] bg-white z-50 md:hidden overflow-y-auto shadow-2xl animate-in slide-in-from-right duration-300"
         role="dialog"
         aria-modal="true"
