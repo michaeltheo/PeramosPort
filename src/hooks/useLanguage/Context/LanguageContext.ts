@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { Language, LanguageInfo } from "@/types/language";
+import { TranslationKeys } from "@/types/translations";
 
 /**
  * Context value shape
@@ -11,8 +12,8 @@ export interface LanguageContextValue {
   /** Change the active language */
   setLanguage: (lang: Language) => void;
 
-  /** Translation function - get translated text by key */
-  t: (key: string, fallback?: string) => string;
+  /** Translation function - get translated text by key with full autocomplete support */
+  t: (key: TranslationKeys, fallback?: string) => string;
 
   /** Get all enabled languages */
   enabledLanguages: Language[];
