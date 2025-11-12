@@ -105,7 +105,7 @@ export const LanguageProvider = ({
       try {
         // Split the key by dots to support nested objects
         const keys = key.split(".");
-        let value: unknown = translations[language];
+        let value: any = translations[language];
 
         // Traverse the nested object
         for (const k of keys) {

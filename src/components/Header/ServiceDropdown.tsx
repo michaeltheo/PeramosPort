@@ -17,10 +17,10 @@ interface ServiceLink {
 
 export const ServiceDropdown = ({ label }: ServiceDropdownProps) => {
   return (
-    <NavigationMenuItem>
-      <NavigationMenuTrigger className="relative hover:text-accent bg-transparent hover:bg-transparent px-3">
+    <NavigationMenuItem className="group">
+      <NavigationMenuTrigger className="relative hover:text-accent bg-transparent hover:bg-transparent data-[state=open]:bg-transparent focus:bg-transparent px-3 ">
         {label}
-        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100" />
+        <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100 group-data-[state=open]:scale-x-100" />
       </NavigationMenuTrigger>
       <NavigationMenuContent className="bg-background/95 backdrop-blur-md border-accent/10">
         <ul className="grid w-[280px] gap-2 p-3 bg-background/95">

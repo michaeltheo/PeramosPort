@@ -9,7 +9,7 @@ import { LanguageToggle } from "./LanguageToggle";
 
 export const Header = () => {
   const { language, setLanguage, t } = useLanguage();
-  const { mobileMenuOpen, closeMobileMenu, toggleMobileMenu } =
+  const { mobileMenuOpen, isScrolled, closeMobileMenu, toggleMobileMenu } =
     useHeaderState();
 
   const toggleLanguage = () => {
@@ -17,7 +17,11 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+        isScrolled ? "" : ""
+      }`}
+    >
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link
