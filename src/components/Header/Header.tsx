@@ -5,16 +5,12 @@ import { Menu, X, Anchor } from "lucide-react";
 import { DesktopNavigation } from "./DesktopNavigation";
 import { MobileMenu } from "./MobileMenu";
 import { useHeaderState } from "./useHeaderState";
-import { LanguageToggle } from "./LanguageToggle";
+import { LanguageDropdown } from "./LanguageDropdown";
 
 export const Header = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const { mobileMenuOpen, isScrolled, closeMobileMenu, toggleMobileMenu } =
     useHeaderState();
-
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "el" : "en");
-  };
 
   return (
     <header
@@ -39,7 +35,7 @@ export const Header = () => {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-2 p-4 w-[fit]">
-          <LanguageToggle language={language} onToggle={toggleLanguage} />
+          <LanguageDropdown />
 
           <Button
             variant="ghost"
