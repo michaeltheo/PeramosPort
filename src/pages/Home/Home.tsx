@@ -1,9 +1,8 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import { Button, Card, CardContent, CardHeader } from "@/components/ui";
+import { Button } from "@/components/ui";
 
 const Home = () => {
-  const { t, language, getLanguageInfo } = useLanguage();
-  const currentLangInfo = getLanguageInfo(language);
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen">
@@ -33,65 +32,6 @@ const Home = () => {
             >
               {t("nav.about")}
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Language Demo Section */}
-      <section className="py-16 bg-muted/50">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              {t("common.welcome")} - Language Demo
-            </h2>
-            <p className="text-muted-foreground">
-              Current Language:{" "}
-              <strong>
-                {currentLangInfo.name} {currentLangInfo.flag}
-              </strong>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Services Cards */}
-            <Card className="card-hover">
-              <CardHeader>
-                <h3 className="text-xl font-semibold">
-                  {t("services.container.title")}
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  {t("services.container.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardHeader>
-                <h3 className="text-xl font-semibold">
-                  {t("services.cargo.title")}
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  {t("services.cargo.description")}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardHeader>
-                <h3 className="text-xl font-semibold">
-                  {t("services.vessel.title")}
-                </h3>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  {t("services.vessel.description")}
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
