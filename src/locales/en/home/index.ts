@@ -1,22 +1,31 @@
 export const home = {
   home: {
     videoHero: {
-      tagline: "Το Πρώτο Λιμάνι Μηδενικών Ρύπων στην Ελλάδα",
+      tagline: "Greece's First Zero-Emission Port",
       subtitle:
-        "Η Νέα σας Πύλη προς την Ευρώπη, τα Βαλκάνια & την Ανατολική Μεσόγειο",
-      cta: "Ξεκινήστε",
-      learn: "Μάθετε Περισσότερα",
+        "Your Gateway to Europe, the Balkans & Eastern Mediterranean",
+      cta: "Get Started",
+      learn: "Learn More",
     },
     hero: {
-      title: "Λιμάνι Νέας Περάμου",
-      subtitle: "Η Πύλη σας προς τη Ναυτιλιακή Αριστεία",
+      title: "Port of Nea Peramos",
+      subtitle: "Your Gateway to Maritime Excellence",
       description:
-        "Σύγχρονες λιμενικές εγκαταστάσεις που εξυπηρετούν τη ναυτιλιακή βιομηχανία με παγκόσμιας κλάσης υποδομή και υπηρεσίες.",
+        "Modern port facilities serving the maritime industry with world-class infrastructure and services.",
     },
     about: {
-      title: "Σχετικά με το Λιμάνι μας",
+      title: "About Our Port",
       description:
-        "Το Λιμάνι Νέας Περάμου είναι ένας στρατηγικός ναυτιλιακός κόμβος που παρέχει ολοκληρωμένες υπηρεσίες στη ναυτιλιακή βιομηχανία.",
+        "The Port of Nea Peramos is a strategic maritime hub providing comprehensive services to the shipping industry.",
+    },
+    stats: {
+      title: "Port at a Glance",
+      subtitle: "Key specifications that define our operational excellence",
+      maxDraft: "Max Draft",
+      currentQuay: "Current Quay",
+      plannedExtension: "+300m planned",
+      shorePower: "Shore Power (DWT)",
+      operations: "Operations",
     },
   },
 };

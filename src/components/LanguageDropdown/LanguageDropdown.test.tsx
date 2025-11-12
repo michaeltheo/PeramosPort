@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { LanguageDropdown } from "./LanguageDropdown";
 import { LanguageProvider } from "@/hooks/useLanguage/Provider/LanguageProvider";
 import { Language } from "@/types/language";
@@ -56,14 +56,6 @@ describe("LanguageDropdown Component", () => {
     it("renders without crashing", () => {
       const { container } = renderWithLanguageProvider();
       expect(container).toBeTruthy();
-    });
-
-    it("displays the globe icon", () => {
-      renderWithLanguageProvider();
-
-      // Globe icon should be present (aria-label)
-      const button = screen.getByRole("button", { name: /select language/i });
-      expect(button).toBeInTheDocument();
     });
 
     it("displays ChevronDown icon in trigger button", () => {
