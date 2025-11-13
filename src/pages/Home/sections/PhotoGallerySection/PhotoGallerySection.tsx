@@ -103,11 +103,11 @@ export const PhotoGallerySection = () => {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 gradient-text leading-tight">
             {t("home.photoGallery.title")}
           </h2>
 
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             {t("home.photoGallery.subtitle")}
           </p>
         </div>

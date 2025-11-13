@@ -317,3 +317,24 @@ PORT/SEA THEME COLOR PALETTE:
 .animate-scroll-vertical {
   animation: scroll-vertical 10s linear infinite;
 }
+
+/* Slow spin animation for globe icon */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Animated dashed line for map routes */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
