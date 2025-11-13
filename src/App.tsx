@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
-import { PageLoader, Header } from "./components";
+import { PageLoader, Header, Footer } from "./components";
 import { useAOS } from "@/hooks";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -21,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      <Footer />
     </BrowserRouter>
   );
 }
