@@ -46,7 +46,8 @@ export const PhotoGallerySection = () => {
     <section
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(210 60% 97%) 50%, hsl(210 50% 96%) 100%)"
+        background:
+          "linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(210 60% 97%) 50%, hsl(210 50% 96%) 100%)",
       }}
     >
       {/* Decorative background elements */}
@@ -54,11 +55,17 @@ export const PhotoGallerySection = () => {
         {/* Gradient orbs */}
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(210 100% 85%) 0%, transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle, hsl(210 100% 85%) 0%, transparent 70%)",
+          }}
         />
         <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "radial-gradient(circle, hsl(200 100% 88%) 0%, transparent 70%)" }}
+          style={{
+            background:
+              "radial-gradient(circle, hsl(200 100% 88%) 0%, transparent 70%)",
+          }}
         />
 
         {/* Subtle grid pattern */}
@@ -69,9 +76,21 @@ export const PhotoGallerySection = () => {
               linear-gradient(hsl(210 100% 25%) 1px, transparent 1px),
               linear-gradient(90deg, hsl(210 100% 25%) 1px, transparent 1px)
             `,
-            backgroundSize: "50px 50px"
+            backgroundSize: "50px 50px",
           }}
         />
+
+        {/* Scrolling vertical text "NEA PERAMOS" */}
+        <div className="absolute inset-y-0 left-8 md:left-16 flex flex-col justify-start overflow-hidden opacity-[0.04]">
+          <div className="animate-scroll-vertical whitespace-nowrap">
+            <div
+              className="text-[12rem] md:text-[16rem] font-black text-primary uppercase tracking-tighter"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              NEA PERAMOS PORT
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="container relative">
@@ -93,8 +112,11 @@ export const PhotoGallerySection = () => {
           </p>
         </div>
 
-        {/* Gallery grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
+        {/* Gallery grid - horizontal row */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          data-aos="fade-up"
+        >
           {GALLERY_ITEMS.map((item) => (
             <GalleryCard
               key={item.titleKey}
