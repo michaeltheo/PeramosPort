@@ -52,7 +52,7 @@ export const InformationItem = memo(
 
         {/* Text content */}
         <div className="flex-1 min-w-0">
-          <h4 className="font-bold text-base md:text-lg mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+          <h4 className="font-bold text-base md:text-lg mb-2 text-primary group-hover:text-primary transition-colors duration-300">
             {title}
           </h4>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
