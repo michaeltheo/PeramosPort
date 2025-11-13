@@ -18,167 +18,140 @@ import {
 import { useLanguage } from "@/hooks/useLanguage";
 
 export const StrategicAdvantagesSection = () => {
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
-  // Map language codes
-  const lang = language === "el" ? "gr" : language === "bg" ? "en" : language;
-  const content = {
-    en: {
-      badge: "Strategic Location",
-      title: "Your Gateway to Europe & Asia",
-      subtitle:
-        "Positioned at the crossroads of continents. Connect Europe to Asia by road. Minutes from Thessaloniki and Kavala. Bulgaria's direct export gateway.",
-      advantages: [
-        {
-          title: "Near Thessaloniki & Kavala",
-          description:
-            "Minutes from two major Greek cities with international airports and established logistics networks.",
-          distanceBadge: "60-80 km",
-          timeBadge: "< 1 hour",
-        },
-        {
-          title: "Bulgaria's Export Gateway",
-          description:
-            "Closest Greek port to Bulgaria. Direct road connection enables rapid land-sea freight transfer for Bulgarian exports.",
-          distanceBadge: "120 km",
-          timeBadge: "90 min",
-        },
-        {
-          title: "Europe-Asia Land Bridge",
-          description:
-            "Strategic position on the European road network connecting to Asia via Turkey. Road freight meets maritime logistics.",
-          distanceBadge: "Via E90",
-          timeBadge: "Direct route",
-        },
-        {
-          title: "Three Continents Connected",
-          description:
-            "Direct maritime access to Europe, Asia, and Africa. Strategic Mediterranean position enables seamless global trade connections.",
-          distanceBadge: "3 Continents",
-          timeBadge: "24/7 Access",
-        },
-        {
-          title: "Sustainable Port Operations",
-          description:
-            "Zero carbon emissions target by 2030. Committed to eco-friendly practices and green maritime logistics.",
-          distanceBadge: "0% Target",
-          timeBadge: "By 2030",
-        },
-        {
-          title: "Multi-Modal Transport Hub",
-          description:
-            "Seamless integration of road, rail, and maritime transport. Efficient cargo transfer between land and sea logistics.",
-          distanceBadge: "Road + Sea",
-          timeBadge: "2-4h Transfer",
-        },
-      ],
-      ctaButton: "Explore Our Capabilities",
-      stats: {
-        continents: "Continents Connected",
-        crossBorder: "Cross-Border Ready",
-        carbon: "Carbon Emissions Target",
-      },
-      whyLocationTitle: "Why Location Matters",
-      benefits: [
-        {
-          title: "Sheltered Natural Gulf",
-          description: "Very low wind exposure - safe operations year-round",
-        },
-        {
-          title: "Road Network Access",
-          description: "Direct connection to European highways and Turkey",
-        },
-        {
-          title: "ISO Certified Operations",
-          description: "ISO 14001, 22301, 27001, 9001 standards",
-        },
-        {
-          title: "ISPS Security Compliant",
-          description:
-            "International port security standards fully implemented",
-        },
-      ],
-    },
-    gr: {
-      badge: "Στρατηγική Τοποθεσία",
-      title: "Η Πύλη σας για Ευρώπη & Ασία",
-      subtitle:
-        "Στη διασταύρωση των ηπείρων. Συνδέστε την Ευρώπη με την Ασία οδικώς. Λίγα λεπτά από Θεσσαλονίκη και Καβάλα. Άμεση πύλη εξαγωγών της Βουλγαρίας.",
-      advantages: [
-        {
-          title: "Κοντά σε Θεσσαλονίκη & Καβάλα",
-          description:
-            "Λίγα λεπτά από δύο μεγάλες ελληνικές πόλεις με διεθνή αεροδρόμια και καθιερωμένα δίκτυα logistics.",
-          distanceBadge: "60-80 χλμ",
-          timeBadge: "< 1 ώρα",
-        },
-        {
-          title: "Πύλη Εξαγωγών Βουλγαρίας",
-          description:
-            "Πλησιέστερο ελληνικό λιμάνι στη Βουλγαρία. Άμεση οδική σύνδεση για ταχεία μεταφορά οδικού-θαλάσσιου φορτίου βουλγαρικών εξαγωγών.",
-          distanceBadge: "120 χλμ",
-          timeBadge: "90 λεπτά",
-        },
-        {
-          title: "Χερσαία Γέφυρα Ευρώπης-Ασίας",
-          description:
-            "Στρατηγική θέση στο ευρωπαϊκό οδικό δίκτυο που συνδέεται με την Ασία μέσω Τουρκίας. Οδικό φορτίο συναντά θαλάσσια logistics.",
-          distanceBadge: "Μέσω E90",
-          timeBadge: "Άμεση διαδρομή",
-        },
-        {
-          title: "Τρεις Ήπειροι Συνδεδεμένες",
-          description:
-            "Άμεση θαλάσσια πρόσβαση σε Ευρώπη, Ασία και Αφρική. Στρατηγική θέση Μεσογείου για απρόσκοπτες παγκόσμιες εμπορικές συνδέσεις.",
-          distanceBadge: "3 Ήπειροι",
-          timeBadge: "Πρόσβαση 24/7",
-        },
-        {
-          title: "Βιώσιμες Λιμενικές Λειτουργίες",
-          description:
-            "Στόχος μηδενικών εκπομπών άνθρακα έως το 2030. Δέσμευση σε φιλικές προς το περιβάλλον πρακτικές και πράσινη θαλάσσια logistics.",
-          distanceBadge: "Στόχος 0%",
-          timeBadge: "Έως 2030",
-        },
-        {
-          title: "Πολυτροπικός Κόμβος Μεταφορών",
-          description:
-            "Απρόσκοπτη ολοκλήρωση οδικών, σιδηροδρομικών και θαλάσσιων μεταφορών. Αποδοτική μεταφορά φορτίου μεταξύ χερσαίας και θαλάσσιας logistics.",
-          distanceBadge: "Οδικό + Θαλάσσιο",
-          timeBadge: "Μεταφορά 2-4ω",
-        },
-      ],
-      ctaButton: "Εξερευνήστε τις Δυνατότητές μας",
-      stats: {
-        continents: "Ηπείροι Συνδεδεμένες",
-        crossBorder: "Διασυνοριακή Ετοιμότητα",
-        carbon: "Στόχος Εκπομπών Άνθρακα",
-      },
-      whyLocationTitle: "Γιατί Μετράει η Τοποθεσία",
-      benefits: [
-        {
-          title: "Προστατευμένος Φυσικός Κόλπος",
-          description:
-            "Ελάχιστη έκθεση σε άνεμο - ασφαλείς λειτουργίες όλο το χρόνο",
-        },
-        {
-          title: "Πρόσβαση σε Οδικό Δίκτυο",
-          description:
-            "Άμεση σύνδεση με ευρωπαϊκούς αυτοκινητόδρομους και Τουρκία",
-        },
-        {
-          title: "Πιστοποιημένες Λειτουργίες ISO",
-          description: "Πρότυπα ISO 14001, 22301, 27001, 9001",
-        },
-        {
-          title: "Συμβατό με Ασφάλεια ISPS",
-          description: "Διεθνή πρότυπα ασφαλείας λιμένων πλήρως εφαρμοσμένα",
-        },
-      ],
-    },
-  };
+  // Get translations from locale files
+  const badge = t("home.photoGallery.strategicAdvantages.badge");
+  const title = t("home.photoGallery.strategicAdvantages.title");
+  const subtitle = t("home.photoGallery.strategicAdvantages.subtitle");
+  const ctaButton = t("home.photoGallery.strategicAdvantages.ctaButton");
+  const whyLocationTitle = t(
+    "home.photoGallery.strategicAdvantages.whyLocationTitle"
+  );
 
-  const t = content[lang as keyof typeof content];
+  // Advantages data structure
+  const advantages = [
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.nearThessaloniki.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.nearThessaloniki.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.nearThessaloniki.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.nearThessaloniki.timeBadge"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.bulgariaGateway.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.bulgariaGateway.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.bulgariaGateway.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.bulgariaGateway.timeBadge"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.europeAsia.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.europeAsia.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.europeAsia.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.europeAsia.timeBadge"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.threeContinents.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.threeContinents.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.threeContinents.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.threeContinents.timeBadge"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.sustainable.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.sustainable.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.sustainable.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.sustainable.timeBadge"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.advantages.multiModal.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.advantages.multiModal.description"
+      ),
+      distanceBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.multiModal.distanceBadge"
+      ),
+      timeBadge: t(
+        "home.photoGallery.strategicAdvantages.advantages.multiModal.timeBadge"
+      ),
+    },
+  ];
+
+  // Benefits data structure
+  const benefits = [
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.benefits.shelteredGulf.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.benefits.shelteredGulf.description"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.benefits.roadNetwork.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.benefits.roadNetwork.description"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.benefits.isoCertified.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.benefits.isoCertified.description"
+      ),
+    },
+    {
+      title: t(
+        "home.photoGallery.strategicAdvantages.benefits.ispsSecurity.title"
+      ),
+      description: t(
+        "home.photoGallery.strategicAdvantages.benefits.ispsSecurity.description"
+      ),
+    },
+  ];
   const advantageIcons = [
     FaRoad,
     FaChartLine,
@@ -209,19 +182,19 @@ export const StrategicAdvantagesSection = () => {
       <div className="container relative">
         {/* Header */}
         <div className="text-center mb-20" data-aos="fade-up">
-          <SectionBadge icon={Globe} label={t.badge} />
+          <SectionBadge icon={Globe} label={badge} />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 gradient-text leading-tight">
-            {t.title}
+            {title}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            {t.subtitle}
+            {subtitle}
           </p>
         </div>
 
         {/* Strategic Advantages - Full Width Grid */}
         <div className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.advantages.map(
+            {advantages.map(
               (
                 advantage: {
                   title: string;
@@ -253,10 +226,10 @@ export const StrategicAdvantagesSection = () => {
           data-aos-duration="700"
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">
-            {t.whyLocationTitle}
+            {whyLocationTitle}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {t.benefits.map(
+            {benefits.map(
               (
                 benefit: { title: string; description: string },
                 index: number
@@ -284,7 +257,7 @@ export const StrategicAdvantagesSection = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Button content */}
-            <span className="relative z-10">{t.ctaButton}</span>
+            <span className="relative z-10">{ctaButton}</span>
             <svg
               className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
               fill="none"
