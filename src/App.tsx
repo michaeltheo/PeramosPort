@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home"));
 const ColorPalettePage = lazy(() => import("./pages/ColorPalette"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   useAOS();
@@ -16,6 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/color-palette" element={<ColorPalettePage />} />
+          {/* 404 Catch-all route */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

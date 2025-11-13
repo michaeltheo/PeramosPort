@@ -19,13 +19,10 @@ const Home = () => {
         backgroundVideo={MainVideoNeaPeramos}
         showCTA={true}
       />
-
       {/* Stats Section */}
       <StatsSection />
-
       {/* Photo Gallery Section */}
       <PhotoGallerySection />
-
       {/* Gateway Section - Strategic Location */}
       <StrategicAdvantagesSection />
 

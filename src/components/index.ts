@@ -9,3 +9,4 @@ export * from "./GalleryCard";
 export * from "./CargoJourneyTimeline";
 export * from "./StrategicAdvantageCard";
 export * from "./InformationItem";
+export * from "./AnimatedBackground";
