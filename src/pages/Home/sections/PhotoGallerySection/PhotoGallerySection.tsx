@@ -1,53 +1,45 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { GalleryCard } from "@/components";
 import { TranslationKeys } from "@/types/translations";
-import { Globe, TrendingUp, Sparkles, Building2 } from "lucide-react";
+import { Globe } from "lucide-react";
 
 // Import images - replace these with your actual image imports
-// import portAerial1 from "@/assets/port-aerial-1.jpg";
-// import portAerial2 from "@/assets/port-aerial-2.jpg";
-// import portAerial3 from "@/assets/port-aerial-3.jpg";
-// import portOperations from "@/assets/port-operations.jpg";
+import portAerial1 from "@/assets/icons/port-aerial-1.jpg";
+import portAerial2 from "@/assets/icons/port-aerial-2.jpg";
+import portAerial3 from "@/assets/icons/port-aerial-3.jpg";
+import portOperations from "@/assets/icons/port-operations.jpg";
 
 interface GalleryItem {
   image: string;
   titleKey: TranslationKeys;
   descriptionKey: TranslationKeys;
-  icon: typeof Globe;
+  icon?: typeof Globe;
   direction: "left" | "right";
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
   {
-    image:
-      "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=800&h=600&fit=crop",
+    image: portAerial1,
     titleKey: "home.photoGallery.strategicLocation.title",
     descriptionKey: "home.photoGallery.strategicLocation.description",
-    icon: Globe,
     direction: "right",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+    image: portAerial2,
     titleKey: "home.photoGallery.modernTerminal.title",
     descriptionKey: "home.photoGallery.modernTerminal.description",
-    icon: Building2,
     direction: "left",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1605731414904-67ce785d4b5f?w=800&h=600&fit=crop",
+    image: portAerial3,
     titleKey: "home.photoGallery.excellence.title",
     descriptionKey: "home.photoGallery.excellence.description",
-    icon: Sparkles,
     direction: "right",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&h=600&fit=crop",
+    image: portOperations,
     titleKey: "home.photoGallery.expansion.title",
     descriptionKey: "home.photoGallery.expansion.description",
-    icon: TrendingUp,
     direction: "left",
   },
 ];
@@ -78,14 +70,12 @@ export const PhotoGallerySection = () => {
 
         {/* Gallery grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
-          {GALLERY_ITEMS.map((item, index) => (
+          {GALLERY_ITEMS.map((item) => (
             <GalleryCard
               key={item.titleKey}
               image={item.image}
               title={t(item.titleKey)}
               description={t(item.descriptionKey)}
-              icon={item.icon}
-              delay={index * 100}
             />
           ))}
         </div>

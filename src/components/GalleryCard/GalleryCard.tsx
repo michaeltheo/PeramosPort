@@ -5,7 +5,7 @@ interface GalleryCardProps {
   image: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
   delay?: number;
 }
 
@@ -16,10 +16,10 @@ export const GalleryCard = memo(
         data-aos="fade-up"
         data-aos-duration="600"
         data-aos-delay={delay}
-        className="group relative bg-card border border-border/40 overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+        className="group relative bg-card border border-border/40 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"
       >
         {/* Image container */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+        <div className="relative aspect-[16/10] overflow-hidden bg-muted">
           <img
             src={image}
             alt={title}
@@ -31,19 +31,20 @@ export const GalleryCard = memo(
         </div>
 
         {/* Content */}
-        <div className="p-6 md:p-8">
-          {/* Icon */}
-          <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
-            <Icon className="h-5 w-5" aria-hidden="true" />
-          </div>
+        <div className="p-5 md:p-6">
+          {Icon && (
+            <div className="mb-3 inline-flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 text-primary">
+              <Icon className="h-4 w-4" aria-hidden="true" />
+            </div>
+          )}
 
           {/* Title */}
-          <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3 line-clamp-2">
+          <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 line-clamp-2">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="text-muted-foreground text-sm md:text-base leading-relaxed line-clamp-3">
+          <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
             {description}
           </p>
         </div>
