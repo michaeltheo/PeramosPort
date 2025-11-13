@@ -1,6 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { VideoHero } from "@/components/VideoHero";
-import { StatsSection } from "./sections/";
+import { StatsSection, PhotoGallerySection } from "./sections/";
 import MainVideoNeaPeramos from "@/assets/MainVideoNeaPeramos.mp4";
 
 const Home = () => {
@@ -18,6 +18,43 @@ const Home = () => {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Photo Gallery Section */}
+      <PhotoGallerySection />
+      <section
+        className="relative py-32 overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, hsl(210 100% 12%), hsl(210 100% 25%))"
+        }}
+        data-aos="slide-left"
+        data-aos-duration="1000"
+      >
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Diagonal stripe pattern */}
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: "repeating-linear-gradient(45deg, white 0px, white 1px, transparent 1px, transparent 40px)",
+              backgroundSize: "56px 56px"
+            }}
+          />
+
+          {/* Gradient orbs matching primary colors */}
+          <div
+            className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl"
+            style={{ background: "radial-gradient(circle, hsl(210 100% 30%) 0%, transparent 70%)" }}
+          />
+          <div
+            className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl"
+            style={{ background: "radial-gradient(circle, hsl(210 100% 20%) 0%, transparent 70%)" }}
+          />
+        </div>
+
+        <div className="container relative">
+          <div className="text-white">Testrwilgrewoigheroig</div>
+        </div>
+      </section>
 
       {/* About Section */}
       <section className="py-16">
