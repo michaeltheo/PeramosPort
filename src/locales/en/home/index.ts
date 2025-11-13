@@ -27,5 +27,31 @@ export const home = {
       shorePower: "Shore Power (DWT)",
       operations: "Operations",
     },
+    photoGallery: {
+      badge: "Infrastructure Gallery",
+      title: "State-of-the-Art Facilities",
+      subtitle:
+        "Experience our modern port infrastructure designed for operational excellence and environmental sustainability",
+      strategicLocation: {
+        title: "Strategic Harbor Location",
+        description:
+          "Sheltered natural gulf with optimal wind protection and deep-water access",
+      },
+      modernTerminal: {
+        title: "Modern Terminal Operations",
+        description:
+          "Advanced storage and handling infrastructure for containers and bulk cargo",
+      },
+      excellence: {
+        title: "Operational Excellence",
+        description:
+          "24/7 operations with cutting-edge technology and experienced personnel",
+      },
+      expansion: {
+        title: "Expansion & Growth",
+        description:
+          "Phase 2 development adding +300m quay for increased capacity",
+      },
+    },
   },
 };

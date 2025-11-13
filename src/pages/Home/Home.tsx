@@ -1,6 +1,6 @@
 import { useLanguage } from "@/hooks/useLanguage";
 import { VideoHero } from "@/components/VideoHero";
-import { StatsSection } from "./sections/";
+import { StatsSection, PhotoGallerySection } from "./sections/";
 import MainVideoNeaPeramos from "@/assets/MainVideoNeaPeramos.mp4";
 
 const Home = () => {
@@ -18,6 +18,9 @@ const Home = () => {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Photo Gallery Section */}
+      <PhotoGallerySection />
 
       {/* About Section */}
       <section className="py-16">
