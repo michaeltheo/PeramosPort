@@ -14,7 +14,6 @@ interface GalleryItem {
   titleKey: TranslationKeys;
   descriptionKey: TranslationKeys;
   icon?: typeof Globe;
-  direction: "left" | "right";
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
@@ -22,25 +21,21 @@ const GALLERY_ITEMS: GalleryItem[] = [
     image: portAerial1,
     titleKey: "home.photoGallery.strategicLocation.title",
     descriptionKey: "home.photoGallery.strategicLocation.description",
-    direction: "right",
   },
   {
     image: portAerial2,
     titleKey: "home.photoGallery.modernTerminal.title",
     descriptionKey: "home.photoGallery.modernTerminal.description",
-    direction: "left",
   },
   {
     image: portAerial3,
     titleKey: "home.photoGallery.excellence.title",
     descriptionKey: "home.photoGallery.excellence.description",
-    direction: "right",
   },
   {
     image: portOperations,
     titleKey: "home.photoGallery.expansion.title",
     descriptionKey: "home.photoGallery.expansion.description",
-    direction: "left",
   },
 ];
 
@@ -48,8 +43,38 @@ export const PhotoGallerySection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-muted/90">
-      <div className="container">
+    <section
+      className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(210 60% 97%) 50%, hsl(210 50% 96%) 100%)"
+      }}
+    >
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Gradient orbs */}
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(210 100% 85%) 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(200 100% 88%) 0%, transparent 70%)" }}
+        />
+
+        {/* Subtle grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(hsl(210 100% 25%) 1px, transparent 1px),
+              linear-gradient(90deg, hsl(210 100% 25%) 1px, transparent 1px)
+            `,
+            backgroundSize: "50px 50px"
+          }}
+        />
+      </div>
+
+      <div className="container relative">
         {/* Section header */}
         <div className="max-w-3xl mb-12 md:mb-16" data-aos="fade-up">
           <div className="flex items-center gap-3 mb-4">
