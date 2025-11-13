@@ -6,3 +6,6 @@ export * from "./VideoHero";
 export * from "./StatsCard";
 export * from "./SectionBadge";
 export * from "./GalleryCard";
+export * from "./CargoJourneyTimeline";
+export * from "./StrategicAdvantageCard";
+export * from "./InformationItem";
