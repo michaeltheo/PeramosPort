@@ -4,6 +4,7 @@ import {
   StatsSection,
   PhotoGallerySection,
   StrategicAdvantagesSection,
+  CertificateSection,
 } from "./sections/";
 import MainVideoNeaPeramos from "@/assets/MainVideoNeaPeramos.mp4";
 
@@ -25,6 +26,8 @@ const Home = () => {
       <PhotoGallerySection />
       {/* Gateway Section - Strategic Location */}
       <StrategicAdvantagesSection />
+      {/* Certificate Section */}
+      <CertificateSection />
 
       {/* About Section */}
       <section className="py-16">

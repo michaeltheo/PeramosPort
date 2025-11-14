@@ -2,8 +2,7 @@ export const home = {
   home: {
     videoHero: {
       tagline: "Greece's First Zero-Emission Port",
-      subtitle:
-        "Your Gateway to Europe, the Balkans & Eastern Mediterranean",
+      subtitle: "Your Gateway to Europe, the Balkans & Eastern Mediterranean",
       cta: "Get Started",
       learn: "Learn More",
     },
@@ -126,6 +125,30 @@ export const home = {
             description:
               "International port security standards fully implemented",
           },
+        },
+      },
+    },
+    certifications: {
+      badge: "Πρότυπα Ποιότητας",
+      title: "Πιστοποιημένη Αριστεία",
+      description:
+        "Τήρηση διεθνών προτύπων για ποιότητα, ασφάλεια και βιωσιμότητα",
+      items: {
+        iso14001: {
+          name: "ISO 14001",
+          category: "Περιβαλλοντική",
+        },
+        iso22301: {
+          name: "ISO 22301",
+          category: "Επιχειρηματική Συνέχεια",
+        },
+        iso27001: {
+          name: "ISO 27001",
+          category: "Ασφάλεια Πληροφοριών",
+        },
+        iso9001: {
+          name: "ISO 9001",
+          category: "Διαχείριση Ποιότητας",
         },
       },
     },

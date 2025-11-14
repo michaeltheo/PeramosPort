@@ -20,7 +20,8 @@ export const home = {
     },
     stats: {
       title: "Το Λιμάνι με μια Ματιά",
-      subtitle: "Βασικές προδιαγραφές που ορίζουν την επιχειρησιακή μας αριστεία",
+      subtitle:
+        "Βασικές προδιαγραφές που ορίζουν την επιχειρησιακή μας αριστεία",
       maxDraft: "Μέγιστο Βύθισμα",
       currentQuay: "Τρέχουσα Προκυμαία",
       plannedExtension: "+300m σχεδιασμένα",
@@ -127,6 +128,30 @@ export const home = {
             title: "Συμβατό με Ασφάλεια ISPS",
             description: "Διεθνή πρότυπα ασφαλείας λιμένων πλήρως εφαρμοσμένα",
           },
+        },
+      },
+    },
+    certifications: {
+      badge: "Quality Standards",
+      title: "Certified Excellence",
+      description:
+        "Meeting international standards for quality, security, and sustainability",
+      items: {
+        iso14001: {
+          name: "ISO 14001",
+          category: "Environmental",
+        },
+        iso22301: {
+          name: "ISO 22301",
+          category: "Business Continuity",
+        },
+        iso27001: {
+          name: "ISO 27001",
+          category: "Information Security",
+        },
+        iso9001: {
+          name: "ISO 9001",
+          category: "Quality Management",
         },
       },
     },
