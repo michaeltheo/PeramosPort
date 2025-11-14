@@ -132,28 +132,35 @@ export const home = {
       },
     },
     certifications: {
-      badge: "Quality Standards",
-      title: "Certified Excellence",
+      badge: "Πρότυπα Ποιότητας",
+      title: "Πιστοποιημένη Αριστεία",
       description:
-        "Meeting international standards for quality, security, and sustainability",
+        "Τήρηση διεθνών προτύπων για ποιότητα, ασφάλεια και βιωσιμότητα",
       items: {
         iso14001: {
           name: "ISO 14001",
-          category: "Environmental",
+          category: "Περιβαλλοντική",
         },
         iso22301: {
           name: "ISO 22301",
-          category: "Business Continuity",
+          category: "Επιχειρηματική Συνέχεια",
         },
         iso27001: {
           name: "ISO 27001",
-          category: "Information Security",
+          category: "Ασφάλεια Πληροφοριών",
         },
         iso9001: {
           name: "ISO 9001",
-          category: "Quality Management",
+          category: "Διαχείριση Ποιότητας",
         },
       },
+    },
+    cta: {
+      title: "Έτοιμοι να Ξεκινήσετε;",
+      description:
+        "Επικοινωνήστε μαζί μας σήμερα για να συζητήσουμε τις απαιτήσεις σας για containers, χύδην φορτία ή υπηρεσίες πλοίων.",
+      primaryButton: "Ζητήστε Προσφορά",
+      secondaryButton: "Δείτε Τιμές",
     },
   },
 };

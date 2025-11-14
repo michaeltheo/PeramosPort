@@ -4,7 +4,8 @@
       "Bash(npx tsc:*)",
       "Bash(npm run build:*)",
       "Bash(nul)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
