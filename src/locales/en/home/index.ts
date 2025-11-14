@@ -129,28 +129,35 @@ export const home = {
       },
     },
     certifications: {
-      badge: "Πρότυπα Ποιότητας",
-      title: "Πιστοποιημένη Αριστεία",
+      badge: "Quality Standards",
+      title: "Certified Excellence",
       description:
-        "Τήρηση διεθνών προτύπων για ποιότητα, ασφάλεια και βιωσιμότητα",
+        "Meeting international standards for quality, security, and sustainability",
       items: {
         iso14001: {
           name: "ISO 14001",
-          category: "Περιβαλλοντική",
+          category: "Environmental",
         },
         iso22301: {
           name: "ISO 22301",
-          category: "Επιχειρηματική Συνέχεια",
+          category: "Business Continuity",
         },
         iso27001: {
           name: "ISO 27001",
-          category: "Ασφάλεια Πληροφοριών",
+          category: "Information Security",
         },
         iso9001: {
           name: "ISO 9001",
-          category: "Διαχείριση Ποιότητας",
+          category: "Quality Management",
         },
       },
+    },
+    cta: {
+      title: "Ready to Get Started?",
+      description:
+        "Contact us today to discuss your container, bulk cargo, or vessel service requirements.",
+      primaryButton: "Request a Quote",
+      secondaryButton: "View Pricing",
     },
   },
 };
