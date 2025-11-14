@@ -11,3 +11,4 @@ export * from "./StrategicAdvantageCard";
 export * from "./InformationItem";
 export * from "./AnimatedBackground";
 export * from "./Footer";
+export * from "./CertificateButton";
