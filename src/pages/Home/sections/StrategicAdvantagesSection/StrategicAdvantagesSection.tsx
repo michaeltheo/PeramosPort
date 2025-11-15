@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { Globe } from "lucide-react";
 import {
-  StrategicAdvantageCard,
+  StrategicAdvantageCardOption1,
   SectionBadge,
   InformationItem,
 } from "@/components";
@@ -191,9 +191,9 @@ export const StrategicAdvantagesSection = () => {
           </p>
         </div>
 
-        {/* Strategic Advantages - Full Width Grid */}
+        {/* Strategic Advantages */}
         <div className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map(
               (
                 advantage: {
@@ -204,7 +204,7 @@ export const StrategicAdvantagesSection = () => {
                 },
                 index: number
               ) => (
-                <StrategicAdvantageCard
+                <StrategicAdvantageCardOption1
                   key={index}
                   icon={advantageIcons[index]}
                   title={advantage.title}

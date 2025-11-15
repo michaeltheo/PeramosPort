@@ -5,7 +5,10 @@
       "Bash(npm run build:*)",
       "Bash(nul)",
       "Bash(dir:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(del \"c:\\Users\\micha\\Documents\\PeramosPort\\src\\components\\StrategicAdvantageCard\\StrategicAdvantageCardOption2.tsx\")",
+      "Bash(del \"c:\\Users\\micha\\Documents\\PeramosPort\\src\\components\\StrategicAdvantageCard\\StrategicAdvantageCardOption3.tsx\")",
+      "Bash(del \"c:\\Users\\micha\\Documents\\PeramosPort\\src\\pages\\Home\\sections\\StrategicAdvantagesSection\\StrategicAdvantagesSectionDemo.tsx\")"
     ],
     "deny": [],
     "ask": []
